@@ -23,9 +23,9 @@ public class Words {
                 .map(String::toLowerCase)
                 .map(line -> Arrays.stream(SPLIT_WORDS.split(line))
                         .filter(word -> PATTERN_LONG_WORDS.matcher(word).matches())
-                        .toList())
+                        .collect(Collectors.toList()))
                 .flatMap(Collection::stream)
-                .toList();
+                .collect(Collectors.toList());
 
         Map<String, Integer> mapOfWords = subString.stream()
                 .map(String::toLowerCase)
